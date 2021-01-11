@@ -30,11 +30,35 @@ class Page1Screen extends StatelessWidget {
           final curveAnimation =
               CurvedAnimation(parent: animation, curve: Curves.easeInOut);
 
-          return SlideTransition(
-            position: Tween<Offset>(begin: Offset(0.5, 1.0), end: Offset.zero)
-                .animate(curveAnimation),
-            child: child,
+          // return SlideTransition(
+          //   position: Tween<Offset>(begin: Offset(0.5, 1.0), end: Offset.zero)
+          //       .animate(curveAnimation),
+          //   child: child,
+          // );
+
+          // return ScaleTransition(
+          //   child: child,
+          //     scale: Tween<double>(begin: 0.0, end: 1.0).animate(curveAnimation)
+          // );
+
+          // return RotationTransition(
+          //   child: child,
+          //     turns: Tween<double>(begin: 0.9, end: 1).animate(curveAnimation)
+          // );
+          
+          // return FadeTransition(
+          //   child: child,
+          //     opacity: Tween<double>(begin: 0.0, end: 1.0).animate(curveAnimation)
+          // );
+
+          return RotationTransition(
+            child: FadeTransition(
+                child: child,
+                  opacity: Tween<double>(begin: 0.0, end: 1.0).animate(curveAnimation)
+              ),
+              turns: Tween<double>(begin: 0.8, end: 1).animate(curveAnimation)
           );
+
         });
   }
 }
